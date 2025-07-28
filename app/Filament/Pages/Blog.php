@@ -9,8 +9,8 @@ use Illuminate\Contracts\Support\Htmlable;
 class Blog extends Page
 {
     protected static string $view = 'filament.pages.blog';
-
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
+    protected static ?string $navigationGroup = 'Blog Management';
 
     public function getTitle(): string|Htmlable
     {
@@ -22,15 +22,10 @@ class Blog extends Page
         return __('Blog');
     }
 
-    public function mount(): void
-    {
-        // Puedes agregar lógica adicional aquí si es necesario
-    }
-
     public function getPosts()
     {
         return Post::where('is_published', true)
-            ->orderBy('published_at', 'desc')
-            ->paginate(6);
+        ->orderBy('published_at', 'desc')
+        ->paginate(6);
     }
 }

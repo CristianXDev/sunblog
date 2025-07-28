@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 
+
+//PAGES
+use App\Filament\Pages\ViewPost;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +22,5 @@ use Illuminate\Support\Facades\Redirect;
 Route::get('/', function () {
     return view('home.index');
 });
+
+Route::get('dashboard/view-post/{id}', ViewPost::class)->name('view-post');

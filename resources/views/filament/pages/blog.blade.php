@@ -50,17 +50,16 @@
 
                     <!-- Botón para leer más -->
                     <div class="mt-4">
-                      <a 
-                      href="{{-- route('blog-post', $post->id) --}}"
-                      class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-primary-600 rounded-lg shadow-md 
-                      hover:bg-primary-700 hover:shadow-lg transition-all duration-200 
-                      dark:bg-primary-500 dark:hover:bg-primary-600 group"
-                      >
-                      Leer más 
-                      <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                </a>
+                    <a 
+                           href="{{ route('view-post', ['id' => $post->id]) }}"
+                           class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-primary-600 rounded-lg shadow-md 
+                           hover:bg-primary-700 hover:shadow-lg transition-all duration-200 
+                           dark:bg-primary-500 dark:hover:bg-primary-600 group">
+                           Leer más 
+                           <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
                     </div>
                 </div>
             </div>

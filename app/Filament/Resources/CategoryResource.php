@@ -9,11 +9,11 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class CategoryResource extends Resource
-{
+class CategoryResource extends Resource{
+    
     protected static ?string $model = Category::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-tag'; // Icono opcional
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?string $navigationGroup = 'Blog Management';
 
     public static function form(Form $form): Form
     {
