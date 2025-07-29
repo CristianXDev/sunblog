@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Support\Facades\Storage;
 
-class User extends Authenticatable implements HasAvatar
+class User extends Authenticatable implements HasAvatar 
 {
     use HasApiTokens, HasFactory, Notifiable;
 

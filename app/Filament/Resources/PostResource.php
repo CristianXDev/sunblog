@@ -10,6 +10,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use TangoDevIt\FilamentEmojiPicker\EmojiPickerAction;
 
 class PostResource extends Resource
 {
@@ -34,13 +35,15 @@ class PostResource extends Resource
 
             Forms\Components\TextInput::make('title')
             ->required()
-            ->maxLength(255),
+            ->maxLength(255)
+            ->suffixAction(EmojiPickerAction::make('emoji-title')),
 
             Forms\Components\RichEditor::make('content')
             ->required()
             ->columnSpanFull()
             ->fileAttachmentsDirectory('posts/content')
-            ->fileAttachmentsVisibility('public'),
+            ->fileAttachmentsVisibility('public')
+            ->hintAction(EmojiPickerAction::make('emoji-messagge')),
 
             Forms\Components\FileUpload::make('image')
             ->image()
