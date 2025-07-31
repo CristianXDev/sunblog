@@ -72,5 +72,8 @@
             Volver al blog
         </a>
     </div>
+
+    @livewire('comments', ['id' => $post->id], key('comments-'.$post->id))
+
 </div>
 </x-filament-panels::page>
