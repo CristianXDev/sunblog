@@ -1,10 +1,6 @@
 @extends('layouts.home')
 
-@section('title')
-
-Sun Blog - Ilumina tus ideas
-
-@endsection
+@section('title', 'Sun Blog - Ilumina tus ideas')
 
 @section('content')
 

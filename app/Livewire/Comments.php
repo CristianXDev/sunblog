@@ -4,16 +4,30 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-//MODELO
+//Modelo
 use App\Models\Comment;
 
 //Componente de autenificación
 use Illuminate\Support\Facades\Auth;
 
-class Comments extends Component{
+//Componentes Filament
+use Filament\Notifications\Notification;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
+use Filament\Forms\Components\TextInput;
+
+class Comments extends Component implements HasForms, HasActions{
+
+    use InteractsWithActions;
+    use InteractsWithForms;
 
     //Variables de los comentarios
     public $comentario, $comentario_update, $post_id, $selected_id;
+
+    public Post $post;
 
     public function render(){
 
@@ -26,7 +40,7 @@ class Comments extends Component{
     }
 
     //Guardar comentario
-     public function store(){
+    public function store(){
 
         //Validar datos
         $this->validate([
@@ -40,10 +54,15 @@ class Comments extends Component{
             'post_id' => $this->post_id,
         ]);
 
+        Notification::make()
+        ->title('Su comentario a sido publicado')
+        ->success()
+        ->send();
+
         //Resetear campos
         $this->resetInput();
 
-      }
+    }
 
 
     //Editar comentario
@@ -74,13 +93,24 @@ class Comments extends Component{
         }
     }
 
+    //Borrar comentario
+    public function deleteAction(): Action{
 
-    //Eliminar comentario
-    public function destroy($id){
+        return Action::make('delete')
+        ->icon('heroicon-m-trash')
+        ->iconButton()
+        ->requiresConfirmation()
+        ->action(function (array $arguments){
 
-        if ($id){
-            Comment::where('id', $id)->delete();
-        }
+            $post = Comment::find($arguments['post']);
+            $post?->delete();
+        });
+
+
+        Notification::make()
+        ->title('El comentario a sido eliminado')
+        ->danger()
+        ->send();
     }
 
     //Resetar inputs
