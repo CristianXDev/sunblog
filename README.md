@@ -1,3 +1,8 @@
+<h2>SunBlog</h2>
+<img width="1023" height="599" alt="Screenshot_1" src="https://github.com/user-attachments/assets/a8f5c256-e5ab-441f-8ef3-19a8ceb1d167" />
+
+<hr>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
