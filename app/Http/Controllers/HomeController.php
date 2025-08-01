@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+//Modelos
 use App\Models\Post;
 use App\Models\Category;
 
-class HomeController extends Controller
-{
-    public function blog()
-    {
+class HomeController extends Controller{
+
+    //Recupera información sobre los post
+    public function blog(){
+
         $posts = Post::with(['user', 'category'])
                     ->where('is_published', true)
                     ->orderBy('published_at', 'desc')
@@ -20,6 +23,7 @@ class HomeController extends Controller
         return view('home.blog', compact('posts', 'categories'));
     }
 
+    //Muestra post especifico
     public function post($id){
 
         $post = Post::with(['user', 'category', 'comments.user'])

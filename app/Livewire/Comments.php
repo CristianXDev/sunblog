@@ -64,7 +64,6 @@ class Comments extends Component implements HasForms, HasActions{
 
     }
 
-
     //Editar comentario
     public function edit($id){
         $record = Comment::findOrFail($id);

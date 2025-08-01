@@ -20,9 +20,9 @@
 </head>
 <body class="font-poppins text-white relative">
 
-    {{-- CONTENT --}}
+    <!-- CONTENT -->
     @yield('content')
-    {{-- /CONTENT --}}
+    <!-- /CONTENT -->
 
 </body>
 </html>

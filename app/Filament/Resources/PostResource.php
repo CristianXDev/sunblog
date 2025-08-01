@@ -52,7 +52,7 @@ class PostResource extends Resource
             ->preserveFilenames()
             ->imageEditor()
             ->columnSpanFull()
-                ->required(), // Opcional: si quieres que sea obligatorio
+            ->required(),
 
                 Forms\Components\Toggle::make('is_published')
                 ->live()

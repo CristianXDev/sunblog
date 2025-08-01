@@ -1,16 +1,18 @@
 @extends('layouts.home')
 
-@section('title', $post->title . ' | Sun Blog')
+@section('title', 'Sun Blog | '. $post->title)
 
 @section('content')
-<!-- Partículas flotantes -->
+
+<!-- Particles -->
 <div class="sun-particles" id="particles"></div>
 
-<!-- Gradiente radial para efecto solar -->
+<!-- Solar Effect -->
 <div class="fixed inset-0 sun-gradient pointer-events-none"></div>
 
 <div class="container mx-auto px-4 py-12 min-h-screen relative z-10">
-    <!-- Botón de volver -->
+
+    <!-- Back button -->
     <div class="mb-6">
         <a href="{{ route('home-blog') }}" class="sun-button inline-flex items-center  hover:text-sun-secondary transition-colors px-8 py-4 rounded-full font-bold text-lg animate-entry delay-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
@@ -20,9 +22,10 @@
         </a>
     </div>
 
-    <!-- Contenido del post -->
+    <!--  Post content -->
     <article class="max-w-4xl mx-auto">
-        <!-- Encabezado -->
+
+        <!-- Header -->
         <header class="mb-8">
             <div class="flex items-center justify-between mb-4">
                 <span class="text-xs font-semibold px-2 py-1 rounded-full bg-sun-primary/10 text-sun-primary">
@@ -46,34 +49,23 @@
             </div>
         </header>
 
-        <!-- Imagen destacada -->
+        <!-- Post image -->
         @if($post->image)
+
         <div class="mb-8 rounded-xl overflow-hidden">
             <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="w-full h-auto max-h-96 object-cover">
         </div>
+
         @endif
 
-        <!-- Contenido -->
+        <!-- Content -->
         <div class="prose prose-invert max-w-none">
-            {!! $post->content !!}
-        </div>
+       
+            {!! Str::markdown($post->content) !!}
+            
+       </div>
 
-        <!-- Tags (si los tienes) -->
-        @if($post->tags && $post->tags->count() > 0)
-        <div class="mt-8 pt-6 border-t border-sun-primary/20">
-            <h3 class="text-sm font-semibold text-gray-400 mb-2">Etiquetas:</h3>
-            <div class="flex flex-wrap gap-2">
-                @foreach($post->tags as $tag)
-                <span class="text-xs px-3 py-1 rounded-full bg-sun-dark/50 text-gray-300 border border-sun-primary/20">
-                    {{ $tag->name }}
-                </span>
-                @endforeach
-            </div>
-        </div>
-        @endif
-
-
-        <!-- Botón de volver -->
+        <!-- Back button -->
         <div class="mt-6">
             <a href="{{ route('home-blog') }}" class="sun-button inline-flex items-center  hover:text-sun-secondary transition-colors px-8 py-4 rounded-full font-bold text-lg animate-entry delay-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
@@ -85,13 +77,16 @@
 
     </article>
 
-    <!-- Comentarios -->
+    <!-- Comments -->
     @if($post->comments->count() > 0)
+
     <section class="mt-12 max-w-4xl mx-auto">
         <h2 class="text-2xl font-bold text-white mb-6">Comentarios ({{ $post->comments->count() }})</h2>
         
         <div class="space-y-6">
+
             @foreach($post->comments as $comment)
+            
             <div class="bg-sun-darker/50 rounded-lg p-4 border border-sun-primary/20">
                 <div class="flex items-start gap-4">
                     <div class="flex-shrink-0">
@@ -108,10 +103,14 @@
                     </div>
                 </div>
             </div>
+
             @endforeach
+
         </div>
     </section>
+
     @else
+
     <section class="mt-12 max-w-4xl mx-auto">
         <h2 class="text-2xl font-bold text-white mb-6">Comentarios</h2>
         <div class="bg-sun-darker/50 rounded-lg p-8 text-center border border-sun-primary/20">
@@ -121,21 +120,26 @@
             <p class="text-gray-400">No hay comentarios todavía. Sé el primero en comentar cuando se habilite esta función.</p>
         </div>
     </section>
+
     @endif
 
-
-    <!-- Posts recientes -->
+    <!-- Recent Posts -->
     @if($recentPosts->count() > 0)
+
     <section class="mt-16 max-w-4xl mx-auto">
         <h2 class="text-2xl font-bold text-white mb-6">Artículos recientes</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
             @foreach($recentPosts as $recent)
+
             <div class="card-hover bg-sun-darker/70 backdrop-blur-sm rounded-xl overflow-hidden border border-sun-primary/30 transition-all duration-300 hover:border-sun-primary/50">
+
                 @if($recent->image)
                 <div class="h-40 overflow-hidden">
                     <img src="{{ asset('storage/' . $recent->image) }}" alt="{{ $recent->title }}" class="w-full h-full object-cover">
                 </div>
                 @endif
+
                 <div class="p-4">
                     <span class="text-xs font-semibold px-2 py-1 rounded-full bg-sun-primary/10 text-sun-primary mb-2 inline-block">
                         {{ $recent->category->name }}
@@ -151,9 +155,12 @@
                     </a>
                 </div>
             </div>
+
             @endforeach
+
         </div>
     </section>
+
     @endif
 
     <!-- Footer -->
@@ -162,4 +169,5 @@
         <p class="mt-2">Iluminando mentes desde el amanecer de internet</p>
     </div>
 </div>
+
 @endsection

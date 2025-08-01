@@ -4,14 +4,15 @@
 
 @section('content')
 
-<!-- Partículas flotantes -->
+<!-- Particles -->
 <div class="sun-particles" id="particles"></div>
 
-<!-- Gradiente radial para efecto solar -->
+<!-- Solar Effect -->
 <div class="fixed inset-0 sun-gradient pointer-events-none"></div>
 
 <div class="container mx-auto px-4 py-12 min-h-screen flex flex-col items-center justify-center relative z-10">
-<!-- Logo animado -->
+
+<!-- Animated logo -->
 <div class="animate-rotate-slow mb-8">
     <svg class="h-24 w-24 text-sun-secondary sun-logo" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2L4 12l8 10 8-10z" />
@@ -19,32 +20,42 @@
     </svg>
 </div>
 
-<!-- Título principal -->
+<!-- Main title -->
 <h1 class="text-5xl md:text-7xl font-bold mb-4 text-center animate-entry">
     <span class="text-sun-secondary">SUN</span>BLOG
 </h1>
 
-<!-- Subtítulo -->
+<!-- Caption -->
 <p class="text-xl md:text-2xl text-sun-secondary mb-12 text-center max-w-2xl animate-entry delay-1">
     Donde las ideas brillan con luz propia
 </p>
 
-<!-- Descripción -->
+<!-- Description -->
 <div class="bg-sun-darker/70 backdrop-blur-sm rounded-2xl p-8 mb-12 max-w-3xl  border-sun-primary/30 animate-entry delay-2">
     <p class="text-lg text-center leading-relaxed">
         SunBlog es un proyecto demostrativo desarrollado con Laravel, Livewire y Filament. Más que un blog tradicional, funciona como un showcase técnico donde aplico prácticas de desarrollo, arquitectura limpia y herramientas avanzadas como las mencionadas anteriormente.
     </p>
 </div>
 
-<!-- Botón CTA -->
-<a href="/dashboard/login" class="sun-button px-8 py-4 rounded-full font-bold text-lg animate-entry delay-3">
-    Iniciar sesión
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-2" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-    </svg>
-</a>
+<div class="d-flex">
+    <!-- Buttton -->
+    <a href="/dashboard/login" class="sun-button px-8 py-4 rounded-full font-bold text-lg animate-entry delay-3">
+        Iniciar sesión
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+    </a>
 
-<!-- Tarjetas de características (aparecen al hacer scroll) -->
+    <!-- Buttton -->
+    <a href="/blog" class="sun-button px-8 py-4 rounded-full font-bold text-lg animate-entry delay-3 ml-3">
+        Ver Blog
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+    </a>
+</div>
+
+<!-- Cards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 w-full max-w-6xl">
     <div class="card-hover bg-sun-darker/70 backdrop-blur-sm rounded-2xl p-6 border border-sun-primary/30">
         <div class="text-sun-primary mb-4">

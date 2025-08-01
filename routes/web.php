@@ -24,7 +24,7 @@ use App\Http\Controllers\HomeController;
 //HOME
 Route::get('/', function () {
     return view('home.index');
-});
+})->name("home");
 
 //HOME - BLOG
 Route::get('/blog', [HomeController::class, 'blog'])->name('home-blog');

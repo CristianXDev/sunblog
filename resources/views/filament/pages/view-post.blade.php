@@ -1,20 +1,22 @@
 <x-filament-panels::page>
 <div class="w-full max-w-4xl mx-auto px-4 py-8">
-    <!-- Encabezado del post -->
+
+    <!-- Header -->
     <div class="mb-8">
-        <!-- Categoría -->
+
+        <!-- Category -->
         <div class="mb-2">
             <span class="inline-block px-3 py-1 text-sm font-semibold text-primary-600 bg-primary-100 rounded-full">
                 {{ $post->category->name }}
             </span>
         </div>
         
-        <!-- Título -->
+        <!-- Title -->
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {{ $post->title }}
         </h1>
         
-        <!-- Metadatos del autor y fecha -->
+        <!-- Date & Author -->
         <div class="flex items-center gap-4 text-gray-600 dark:text-gray-300 mb-4">
             <div class="flex items-center gap-2">
                 <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
@@ -35,8 +37,9 @@
         </div>
     </div>
     
-    <!-- Imagen destacada -->
+    <!-- Post image -->
     @if($post->image)
+
     <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
         <img 
             src="{{ asset('storage/' . $post->image) }}" 
@@ -55,12 +58,12 @@
 
     @endif
     
-    <!-- Contenido del post -->
+    <!-- Content -->
     <article class="prose max-w-none dark:prose-invert prose-lg mb-4">
         {!! Str::markdown($post->content) !!}
     </article>
     
-    <!-- Botón de volver -->
+    <!-- Back button -->
     <div class="mt-8">
         <a 
             href="../blog"
@@ -73,6 +76,7 @@
         </a>
     </div>
 
+    <!--Comments-->
     @livewire('comments', ['id' => $post->id], key('comments-'.$post->id))
 
 </div>
